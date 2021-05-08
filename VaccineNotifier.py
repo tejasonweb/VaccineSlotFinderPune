@@ -32,14 +32,14 @@ def getVaccineSlots(date,pincode):
                     for i in range(len(slots)):
                         print(slots[i])
                 else:
-                    print("No capacity is available at center : "+centers[c]["name"])
+                    print("No capacity is available at center : "+centers[c]["name"] + " for date : "+sessions[0]["date"])
                 print("=============================================================")
         else:
             print("No centers available for the pin code : "+str(pincode)+ " and date : "+str(date))
     else:
         print("error : "+str(vreq.status_code) + ". Try again later.")
 
-pincode = 411001
+pincode = 411027
 date1 = datetime.datetime.now().strftime("%d-%m-%Y")
 
 for i in range(998):
