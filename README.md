@@ -2,29 +2,27 @@
 
 SAMPLE OUTPUT
 
-    Getting Vaccine slots for Pin : 411001 and Date : 08-05-2021
-    1 centers are available.
-    No capacity is available at center : Pune Cantonment (18 To 44 Yrs)
-    =============================================================
-    Getting Vaccine slots for Pin : 411002 and Date : 08-05-2021
-    Getting Vaccine slots for Pin : 411003 and Date : 08-05-2021
-    Getting Vaccine slots for Pin : 411004 and Date : 08-05-2021
-    Getting Vaccine slots for Pin : 411005 and Date : 08-05-2021
-    Getting Vaccine slots for Pin : 411006 and Date : 08-05-2021
-    Getting Vaccine slots for Pin : 411007 and Date : 08-05-2021
-    1 centers are available.
-    No capacity is available at center : PARMAR MULTI.SPE HOSP
-    =============================================================
-    Getting Vaccine slots for Pin : 411008 and Date : 08-05-2021
-    Getting Vaccine slots for Pin : 411009 and Date : 08-05-2021
-    Getting Vaccine slots for Pin : 411010 and Date : 08-05-2021
-    Getting Vaccine slots for Pin : 411011 and Date : 08-05-2021
-    Getting Vaccine slots for Pin : 411012 and Date : 08-05-2021
-    Getting Vaccine slots for Pin : 411013 and Date : 08-05-2021
-    Getting Vaccine slots for Pin : 411014 and Date : 08-05-2021
-    Getting Vaccine slots for Pin : 411015 and Date : 08-05-2021
-    Getting Vaccine slots for Pin : 411016 and Date : 08-05-2021
-    Getting Vaccine slots for Pin : 411017 and Date : 08-05-2021
-    1 centers are available.
-    No capacity is available at center : New Jijamata Hospital-2(18-44)
-    =============================================================
+        Getting Vaccine slots for Pin : 411027 and Date : 08-05-2021
+        3 centers are available.
+        No capacity is available at center : District Hospital Aundh 18-44 for date : 08-05-2021
+        =============================================================
+        No capacity is available at center : Ahiyadevi School Sangavi-18-44 for date : 09-05-2021
+        =============================================================
+        No capacity is available at center : Ingwale School P Nilakh(18-44) for date : 09-05-2021
+        =============================================================
+        Getting Vaccine slots for Pin : 411028 and Date : 08-05-2021
+        1 centers are available.
+        No capacity is available at center : Covax AnnaSaheb Magar 18 To 44 for date : 09-05-2021
+        =============================================================
+        Getting Vaccine slots for Pin : 411029 and Date : 08-05-2021
+        No centers available for the pin code : 411029 and date : 08-05-2021
+        Getting Vaccine slots for Pin : 411030 and Date : 08-05-2021
+        No centers available for the pin code : 411030 and date : 08-05-2021
+        Getting Vaccine slots for Pin : 411031 and Date : 08-05-2021
+        No centers available for the pin code : 411031 and date : 08-05-2021
+        Getting Vaccine slots for Pin : 411032 and Date : 08-05-2021
+        No centers available for the pin code : 411032 and date : 08-05-2021
+        Getting Vaccine slots for Pin : 411033 and Date : 08-05-2021
+        1 centers are available.
+        No capacity is available at center : Premlok Park Disp- 2(18-44) for date : 08-05-2021
+        =============================================================
