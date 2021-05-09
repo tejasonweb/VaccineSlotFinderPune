@@ -36,7 +36,7 @@ def getVaccineSlots(date,pincode):
                 else:
                     print("\tNo capacity is available at center : "+centers[c]["name"] + " for date : "+sessions[0]["date"])
         else:
-            print("\tNo centers available for the pin code : "+str(pincode))
+            print("\tNo centers available for the pin code : "+str(pincode) +" on date : "+date)
     else:
         print("error : "+str(vreq.status_code) + ".")
         if(vreq.status_code==403):
@@ -44,7 +44,7 @@ def getVaccineSlots(date,pincode):
             time.sleep(60)
             getVaccineSlots(date,pincode)
 
-pincode = 411001
+#pincode = 411001
 #date1 = datetime.datetime.now().strftime("%d-%m-%Y")
 date2 = datetime.datetime.strptime("05-05-2021","%d-%m-%Y")
 # open pincode file
