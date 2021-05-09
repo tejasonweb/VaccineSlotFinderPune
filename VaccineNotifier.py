@@ -52,9 +52,9 @@ def getVaccineSlots(date,pincode):
         if(vreq.status_code==403):
             if(numofretry < 2):
                 print("Error 403 could be due to too many requests. Will try again in 60 seconds.")
-                numofretry = numofretry+1
                 time.sleep(60)
                 getVaccineSlots(date,pincode)
+                numofretry = numofretry+1
             else:
                 print("Maximum retry count exceeded, moving on to next date/pin.")
 
