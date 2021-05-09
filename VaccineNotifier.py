@@ -9,8 +9,6 @@ import json
 date2 = datetime.datetime.strptime("05-05-2021","%d-%m-%Y")
 # open pincode file
 pincodefile = open("PunePinCodeList.txt")
-numofretry = 0
-
 
 def getVaccineSlots(date,pincode):
     print("===================================================================================================")
@@ -20,7 +18,6 @@ def getVaccineSlots(date,pincode):
     'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36'}
     vreq = requests.get(url,headers=headers)
     if vreq.status_code == 200:
-        numofretry = 0
         centers = vreq.json()["centers"]
         if len(centers)>0:
             print("\t"+str(len(centers)) + " center(s) are available.")
@@ -50,16 +47,13 @@ def getVaccineSlots(date,pincode):
     else:
         print("error : "+str(vreq.status_code) + ".")
         if(vreq.status_code==403):
-            if(numofretry < 2):
-                print("Error 403 could be due to too many requests. Will try again in 60 seconds.")
-                time.sleep(60)
-                getVaccineSlots(date,pincode)
-                numofretry = numofretry+1
-            else:
-                print("Maximum retry count exceeded, moving on to next date/pin.")
+            print("Error 403 could be due to too many requests. Will try again in 60 seconds.")
+            time.sleep(60)
+            getVaccineSlots(date,pincode)
 
 for pincode in pincodefile:
     for i in range(10):
         getVaccineSlots((datetime.datetime.now() + datetime.timedelta(days=i)).strftime("%d-%m-%Y"),pincode.strip())
+    print("")
     #time.sleep(0)
 print("===================================================================================================")    
