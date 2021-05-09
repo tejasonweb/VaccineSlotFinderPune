@@ -1,6 +1,6 @@
 # VaccineSlotFinderPune
 
-You need python and requests library to run the script
+You need python and requests python library to run the script
 
 You can install requests library using below command:
 
