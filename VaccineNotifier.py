@@ -3,6 +3,15 @@ import datetime
 import time
 import json
 
+
+#pincode = 411001
+#date1 = datetime.datetime.now().strftime("%d-%m-%Y")
+date2 = datetime.datetime.strptime("05-05-2021","%d-%m-%Y")
+# open pincode file
+pincodefile = open("PunePinCodeList.txt")
+numofretry = 0
+
+
 def getVaccineSlots(date,pincode):
     print("===================================================================================================")
     print("Pin : " + str(pincode) + " and Date : "+date)
@@ -11,6 +20,7 @@ def getVaccineSlots(date,pincode):
     'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36'}
     vreq = requests.get(url,headers=headers)
     if vreq.status_code == 200:
+        numofretry = 0
         centers = vreq.json()["centers"]
         if len(centers)>0:
             print("\t"+str(len(centers)) + " center(s) are available.")
@@ -34,21 +44,19 @@ def getVaccineSlots(date,pincode):
                     for i in range(len(slots)):
                         print("\t\t"+slots[i])
                 else:
-                    print("\tNo capacity is available at center : "+centers[c]["name"] + " for date : "+sessions[0]["date"])
+                    print("\tNo capacity is available at center : "+centers[c]["name"] + " on date : "+sessions[0]["date"])
         else:
             print("\tNo centers available for the pin code : "+str(pincode) +" on date : "+date)
     else:
         print("error : "+str(vreq.status_code) + ".")
         if(vreq.status_code==403):
-            print("Error 403 could be due to too many requests. Will try again in 60 seconds.")
-            time.sleep(60)
-            getVaccineSlots(date,pincode)
-
-#pincode = 411001
-#date1 = datetime.datetime.now().strftime("%d-%m-%Y")
-date2 = datetime.datetime.strptime("05-05-2021","%d-%m-%Y")
-# open pincode file
-pincodefile = open("PunePinCodeList.txt")
+            if(numofretry < 2):
+                print("Error 403 could be due to too many requests. Will try again in 60 seconds.")
+                numofretry = numofretry+1
+                time.sleep(60)
+                getVaccineSlots(date,pincode)
+            else:
+                print("Maximum retry count exceeded, moving on to next date/pin.")
 
 for pincode in pincodefile:
     for i in range(10):
