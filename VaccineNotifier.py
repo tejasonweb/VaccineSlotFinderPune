@@ -4,7 +4,7 @@ import time
 import json
 
 def getVaccineSlots(date,pincode):
-    print("=============================================================")
+    print("===================================================================================================")
     print("Pin : " + str(pincode) + " and Date : "+date)
     url = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode="+str(pincode)+"&date="+date
     headers = {'Authority':'cdn-api.co-vin.in',
@@ -16,8 +16,8 @@ def getVaccineSlots(date,pincode):
             print("\t"+str(len(centers)) + " center(s) are available.")
             for c in range(len(centers)):
                 #check if there if capacity > 0 for the center
-                print("\t=============================================================")
-                print("\tName \t\t\t: " + centers[c]["name"])
+                print("\t===========================================================================================")
+                print("\tName : " + centers[c]["name"])
                 sessions = centers[c]["sessions"]
                 if(sessions[0]["available_capacity"] > 0):
                     print("\tAddress \t\t: " + centers[c]["address"])
@@ -46,7 +46,7 @@ def getVaccineSlots(date,pincode):
 
 pincode = 411001
 #date1 = datetime.datetime.now().strftime("%d-%m-%Y")
-#date2 = datetime.datetime.strptime("05-05-2021","%d-%m-%Y")
+date2 = datetime.datetime.strptime("05-05-2021","%d-%m-%Y")
 # open pincode file
 pincodefile = open("PunePinCodeList.txt")
 
@@ -54,4 +54,4 @@ for pincode in pincodefile:
     for i in range(10):
         getVaccineSlots((datetime.datetime.now() + datetime.timedelta(days=i)).strftime("%d-%m-%Y"),pincode.strip())
     #time.sleep(0)
-print("=============================================================")    
+print("===================================================================================================")    
