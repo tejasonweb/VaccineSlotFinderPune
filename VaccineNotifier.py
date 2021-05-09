@@ -10,6 +10,24 @@ date2 = datetime.datetime.strptime("05-05-2021","%d-%m-%Y")
 # open pincode file
 pincodefile = open("PunePinCodeList.txt")
 
+def showwait():
+    j = 1
+    for i in range(15):
+        #sys.stdout.write(". ")
+        #sys.stdout.flush()	
+        print("|\t"+str(i+j),end="\r")
+        j+=1
+        time.sleep(1)
+        print("/\t"+str(i+j),end="\r")
+        j+=1
+        time.sleep(1)
+        print("-\t"+str(i+j),end="\r")
+        j+=1
+        time.sleep(1)
+        print("\\\t"+str(i+j),end="\r")
+        time.sleep(1)
+
+
 def getVaccineSlots(date,pincode):
     print("===================================================================================================")
     print("Pin : " + str(pincode) + " and Date : "+date)
@@ -48,7 +66,7 @@ def getVaccineSlots(date,pincode):
         print("error : "+str(vreq.status_code) + ".")
         if(vreq.status_code==403):
             print("Error 403 could be due to too many requests. Will try again in 60 seconds.")
-            time.sleep(60)
+            showwait()
             getVaccineSlots(date,pincode)
 
 for pincode in pincodefile:
